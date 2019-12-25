@@ -17,9 +17,15 @@ public class CartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("New GET request");
+        if (resp.getStatus()==404){
+            resp.getWriter().printf("<h1>Page not found </h1>");
+        }
+        if (resp.getStatus()==403){
+            resp.getWriter().printf("<h1>Forbidden page </h1>");
+        }
         getServletContext().getRequestDispatcher("/cart.html").forward(req, resp);
 
     }
 
-    
+
 }
