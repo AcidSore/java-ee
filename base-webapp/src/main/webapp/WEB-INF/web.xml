@@ -6,15 +6,25 @@
 
   <display-name>Archetype Created Web Application</display-name>
 
-  <servlet>
-    <servlet-name>MainServlet</servlet-name>
-    <servlet-class>servlets.MainServlet</servlet-class>
-  </servlet>
-  <!-- Привязываем сервлет к URL -->
-  <servlet-mapping>
-    <servlet-name>MainServlet</servlet-name>
-    <url-pattern>/main</url-pattern>
-  </servlet-mapping>
+  <context-param>
+    <param-name>jdbcConnectionString</param-name>
+    <param-value>jdbc:mysql://localhost:8889/javaee_test_db?createDatabaseIfNotExist=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>dbUsername</param-name>
+    <param-value>root</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>dbPassword</param-name>
+    <param-value>root</param-value>
+  </context-param>
+
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/error404.html</location>
+  </error-page>
 
 </web-app>
 
