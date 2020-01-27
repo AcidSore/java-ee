@@ -10,7 +10,7 @@
 </h:head>
 
 <h:body>
-    <h:dataTable value = "#{cartController.getAllProducts} " var = "product">
+    <h:dataTable value = "#{cartService.getAllProducts} " var = "product">
         <h:column> #{product.name}</h:column>
         <h:column> #{product.price}</h:column>
     </h:dataTable>

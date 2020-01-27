@@ -1,16 +1,18 @@
 package persist;
 
+import javax.faces.bean.SessionScoped;
 import java.util.List;
 
+@SessionScoped
 public class Cart {
     private Long id;
 
-    List<Long> orderList;
+    private List<Product> orderList;
 
     public Cart() {
     }
 
-    public Cart(Long id, List<Long> orderList) {
+    public Cart(Long id, List<Product> orderList) {
         this.id = id;
         this.orderList = orderList;
     }
@@ -23,11 +25,11 @@ public class Cart {
         this.id = id;
     }
 
-    public List<Long> getOrderList() {
+    public List<Product> getOrderList() {
         return orderList;
     }
 
-    public void setOrderList(List<Long> orderList) {
+    public void setOrderList(List<Product> orderList) {
         this.orderList = orderList;
     }
 

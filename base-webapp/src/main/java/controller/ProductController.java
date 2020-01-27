@@ -1,11 +1,12 @@
 package controller;
 
 import persist.Cart;
-import persist.CartRepository;
 import persist.Product;
 import persist.ProductRepository;
+import services.CartService;
 
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.event.ComponentSystemEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -18,20 +19,27 @@ public class ProductController implements Serializable {
     @Inject
     private ProductRepository productRepository;
 
+    @Inject
+    private CartService cartService;
 
     private Product product;
-    private List<Product> orderList;
+
 
     private Cart cart;
 
+    private List<Product> products;
+
+    public void preloadProducts(ComponentSystemEvent cse){
+        this.products = productRepository.findALL();
+    }
+
     public String addToCart(Product product){
-        orderList.add(product);
+        cartService.addProductQty(product,"green",1);
         return "/index.xhtml?faces-redirect=true";
     }
 
     public String goToCart(){
         cart = new Cart();
-        cart.setOrderList(orderList);
         return "cart.xhtml";
     }
 

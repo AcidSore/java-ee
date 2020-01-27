@@ -10,6 +10,7 @@
 </h:head>
 
 <h:body>
+    <f:event listener="${productController.preloadProducts}" type="preRenderView"/>
 
     <h:form id="productForm">
         <h:dataTable value="#{ProductController.productList}" var="product">
