@@ -1,5 +1,6 @@
 package persist;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -8,6 +9,7 @@ import java.util.Objects;
 @Named
 @SessionScoped
 public class LineItem implements Serializable {
+    @EJB
     private Product product;
     private Integer qty;
     private String color;

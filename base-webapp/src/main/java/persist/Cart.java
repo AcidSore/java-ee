@@ -1,10 +1,11 @@
 package persist;
 
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
+import java.io.Serializable;
 import java.util.List;
 
 @SessionScoped
-public class Cart {
+public class Cart implements Serializable {
     private Long id;
 
     private List<Product> orderList;
@@ -32,5 +33,4 @@ public class Cart {
     public void setOrderList(List<Product> orderList) {
         this.orderList = orderList;
     }
-
 }

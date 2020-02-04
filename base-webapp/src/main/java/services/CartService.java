@@ -2,7 +2,6 @@ package services;
 
 import persist.LineItem;
 import persist.Product;
-import persist.ProductRepository;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
