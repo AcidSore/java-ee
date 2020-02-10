@@ -3,7 +3,7 @@ package controller;
 import persist.Cart;
 import persist.Logger;
 import persist.Product;
-import persist.ProductService;
+import services.ProductService;
 import services.CartService;
 
 import javax.ejb.EJB;

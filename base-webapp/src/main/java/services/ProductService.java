@@ -1,4 +1,7 @@
-package persist;
+package services;
+
+import persist.Product;
+import persist.ProductDaoJpaImp;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
