@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
+<h:head>
+    <title>Product List</title>
+</h:head>
+
+<h:body>
+    <f:event listener="${productController.preloadProducts}" type="preRenderView"/>
+
+    <h:form id="productForm">
+        <h:dataTable value="#{ProductController.productList}" var="product">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                #{product.id}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{product.name}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Price</f:facet>
+                #{product.price}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Action</f:facet>
+                <h:commandButton value="buy" action="#{ProductController.addToCart(product)}">
+
+                    <f:ajax render="productForm"/>
+                </h:commandButton>
+            </h:column>
+        </h:dataTable>
+    </h:form>
+
+    <h:form>
+        <h:commandLink action="#{product.goToCart()}" value="go to cart"/>
+    </h:form>
+
+</h:body>
+
+</html>
