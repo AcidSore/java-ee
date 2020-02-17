@@ -25,5 +25,27 @@
     <location>/WEB-INF/error404.html</location>
   </error-page>
 
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Admin resource</web-resource-name>
+      <url-pattern>/admin/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>ADMIN</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <realm-name>RealmUsersRoles</realm-name>
+    <form-login-config>
+      <form-login-page>/login.xhtml</form-login-page>
+      <form-error-page>/error.xhtml</form-error-page>
+    </form-login-config>
+  </login-config>
+
+
 </web-app>
 
